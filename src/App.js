@@ -1,25 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Logo from "./Logo";
+import BestPokemon from "./BestPokemon";
+import CaughtPokemon from "./CaughtPokemon";
+import Clock from "./Clock";
 
 class App extends Component {
+  logWhenClicked = () => {
+    alert("this was clicked");
+  };
+
+  meowWhenClicked = () => {
+    console.log("Meow");
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <Logo
+          appName="Pokedex"
+          handleClick={this.logWhenClicked}
+          handleMeow={this.meowWhenClicked}
+        />
+        <BestPokemon pokemonNames={["Squirtle", "Bulbasaur", "Charmander"]} />
+        <CaughtPokemon date={new Date().toLocaleDateString()} />
+        <CaughtPokemon date={new Date().toLocaleDateString()} />
+        <CaughtPokemon date={new Date().toLocaleDateString()} />
+        <Clock />
+
       </div>
     );
   }
